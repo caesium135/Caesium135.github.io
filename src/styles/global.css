@@ -1,9 +1,29 @@
 :root {
+	--bg: #0d1117;
+	--panel: #111827;
+	--text: #e8eef7;
+	--muted: #a0aec0;
+	--line: #293241;
+	--link: #7cc4ff;
+	--brand-bg: #0a0a0a;
+	--brand-text: #f2d34f;
+	--button-bg: #171f2c;
+	--button-text: #dce6f2;
+	--content-width: min(920px, calc(100vw - 32px));
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+[data-theme='light'] {
+	--bg: #fff;
+	--panel: #fff;
 	--text: #111;
 	--muted: #555;
 	--line: #ddd;
-	--content-width: min(920px, calc(100vw - 32px));
-	font-family: Arial, Helvetica, sans-serif;
+	--link: #0b57d0;
+	--brand-bg: #111;
+	--brand-text: #f2d34f;
+	--button-bg: #f3f4f6;
+	--button-text: #111;
 }
 
 * {
@@ -17,10 +37,13 @@ html {
 body {
 	margin: 0;
 	min-height: 100vh;
-	background: #fff;
+	background: var(--bg);
 	color: var(--text);
 	font-size: 16px;
 	line-height: 1.6;
+	transition:
+		background-color 160ms ease,
+		color 160ms ease;
 }
 
 a {
@@ -53,14 +76,20 @@ img {
 	flex-wrap: wrap;
 }
 
+.header-actions {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
 .brand {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	padding: 4px 10px;
-	background: #111;
+	background: var(--brand-bg);
 	border-radius: 8px;
-	color: #f2d34f;
+	color: var(--brand-text);
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 0.01em;
@@ -69,13 +98,46 @@ img {
 
 a,
 a:visited {
-	color: #0b57d0;
+	color: var(--link);
 	text-decoration: none;
 }
 
 .site-header nav a,
 .footer-links a {
 	text-decoration: none;
+}
+
+.theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 10px;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	background: var(--button-bg);
+	color: var(--button-text);
+	font: inherit;
+	cursor: pointer;
+}
+
+.theme-toggle-light,
+[data-theme='light'] .theme-toggle-dark {
+	opacity: 0.55;
+}
+
+[data-theme='light'] .theme-toggle-light,
+[data-theme='dark'] .theme-toggle-dark {
+	opacity: 1;
+}
+
+[data-theme='dark'] .theme-toggle-light,
+[data-theme='light'] .theme-toggle-dark {
+	font-weight: 400;
+}
+
+[data-theme='dark'] .theme-toggle-dark,
+[data-theme='light'] .theme-toggle-light {
+	font-weight: 700;
 }
 
 .profile-section {
@@ -256,6 +318,10 @@ a:visited {
 		grid-template-columns: 1fr;
 		flex-direction: column;
 		align-items: flex-start;
+	}
+
+	.header-actions {
+		flex-wrap: wrap;
 	}
 
 	.news-list li {

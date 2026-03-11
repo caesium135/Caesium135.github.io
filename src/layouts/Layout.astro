@@ -29,15 +29,26 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalUrl} />
+		<script is:inline>
+			const savedTheme = localStorage.getItem('theme');
+			const theme = savedTheme === 'light' ? 'light' : 'dark';
+			document.documentElement.dataset.theme = theme;
+		</script>
 	</head>
 	<body>
 		<div class="page-shell">
 			<header class="site-header">
 				<a class="brand" href="/">Caesium135</a>
-				<nav aria-label="Primary">
+				<div class="header-actions">
+					<nav aria-label="Primary">
 					<a href="/#news">News</a>
 					<a href="/#posts">Posts</a>
-				</nav>
+					</nav>
+					<button class="theme-toggle" type="button" aria-label="Toggle color theme">
+						<span class="theme-toggle-light">Light</span>
+						<span class="theme-toggle-dark">Dark</span>
+					</button>
+				</div>
 			</header>
 
 			<main>
@@ -48,5 +59,18 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 				<p class="footer-note">Built by OpenAI Codex</p>
 			</footer>
 		</div>
+		<script is:inline>
+			const applyTheme = (theme) => {
+				document.documentElement.dataset.theme = theme;
+				localStorage.setItem('theme', theme);
+			};
+
+			const toggle = document.querySelector('.theme-toggle');
+			toggle?.addEventListener('click', () => {
+				const nextTheme =
+					document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+				applyTheme(nextTheme);
+			});
+		</script>
 	</body>
 </html>
