@@ -38,16 +38,20 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 	<body>
 		<div class="page-shell">
 			<header class="site-header">
-				<a class="brand" href="/">Caesium135</a>
-				<div class="header-actions">
-					<nav aria-label="Primary">
-					<a href="/#news">News</a>
-					<a href="/#posts">Posts</a>
-					</nav>
+				<div class="header-left">
 					<button class="theme-toggle" type="button" aria-label="Toggle color theme">
 						<span class="theme-toggle-light">Light</span>
 						<span class="theme-toggle-dark">Dark</span>
 					</button>
+				</div>
+				<div class="header-center">
+					<a class="brand" href="/">Caesium135</a>
+				</div>
+				<div class="header-right">
+					<nav aria-label="Primary">
+					<a href="/#news">News</a>
+					<a href="/#posts">Posts</a>
+					</nav>
 				</div>
 			</header>
 

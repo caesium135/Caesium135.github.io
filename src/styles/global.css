@@ -62,9 +62,9 @@ img {
 }
 
 .site-header {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
-	justify-content: space-between;
 	gap: 16px;
 	padding-bottom: 12px;
 	border-bottom: 1px solid var(--line);
@@ -76,10 +76,23 @@ img {
 	flex-wrap: wrap;
 }
 
-.header-actions {
+.header-left,
+.header-center,
+.header-right {
 	display: flex;
 	align-items: center;
-	gap: 14px;
+}
+
+.header-left {
+	justify-content: flex-start;
+}
+
+.header-center {
+	justify-content: center;
+}
+
+.header-right {
+	justify-content: flex-end;
 }
 
 .brand {
@@ -328,8 +341,14 @@ a:visited {
 		align-items: flex-start;
 	}
 
-	.header-actions {
-		flex-wrap: wrap;
+	.site-header {
+		display: flex;
+	}
+
+	.header-left,
+	.header-center,
+	.header-right {
+		justify-content: flex-start;
 	}
 
 	.news-list li {
