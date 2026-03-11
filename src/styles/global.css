@@ -1,21 +1,9 @@
 :root {
-	--bg: #f4efe6;
-	--paper: rgba(255, 251, 245, 0.76);
-	--paper-strong: rgba(255, 249, 241, 0.94);
-	--line: rgba(42, 33, 24, 0.12);
-	--line-strong: rgba(42, 33, 24, 0.22);
-	--text: #1f1a17;
-	--muted: #6a5e53;
-	--accent: #9c543d;
-	--shadow: 0 30px 80px rgba(44, 30, 15, 0.12);
-	--content-width: min(1120px, calc(100vw - 2rem));
-	--prose-width: min(760px, calc(100vw - 2rem));
-	font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-	color: var(--text);
-	background:
-		radial-gradient(circle at top left, rgba(220, 190, 158, 0.34), transparent 28%),
-		radial-gradient(circle at 85% 10%, rgba(121, 145, 157, 0.18), transparent 24%),
-		linear-gradient(180deg, #efe6d9 0%, #f8f4ec 48%, #f0e9de 100%);
+	--text: #111;
+	--muted: #555;
+	--line: #ddd;
+	--content-width: min(920px, calc(100vw - 32px));
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -29,7 +17,10 @@ html {
 body {
 	margin: 0;
 	min-height: 100vh;
+	background: #fff;
 	color: var(--text);
+	font-size: 16px;
+	line-height: 1.6;
 }
 
 a {
@@ -43,385 +34,184 @@ img {
 
 .page-shell {
 	width: var(--content-width);
-	margin: 0 auto;
-	padding: 1rem 0 4rem;
-}
-
-.site-header,
-.site-footer {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1rem;
+	margin: 0 auto 48px;
+	padding: 24px 0 0;
 }
 
 .site-header {
-	position: sticky;
-	top: 1rem;
-	z-index: 10;
-	padding: 0.95rem 1.25rem;
-	margin: 0 auto 2rem;
-	background: rgba(251, 247, 241, 0.78);
-	backdrop-filter: blur(18px);
-	border: 1px solid var(--line);
-	border-radius: 999px;
-	box-shadow: 0 12px 36px rgba(44, 30, 15, 0.08);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--line);
 }
 
-.site-header nav,
-.footer-links,
-.hero-actions,
-.tag-list {
+.site-header nav {
 	display: flex;
-	gap: 0.75rem;
+	gap: 16px;
 	flex-wrap: wrap;
 }
 
-.site-header nav a,
-.footer-links a,
-.text-link,
-.section-link {
-	text-decoration: none;
-}
-
 .brand {
-	font-size: 1.1rem;
+	font-size: 20px;
 	font-weight: 700;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
 	text-decoration: none;
 }
 
-main {
-	display: grid;
-	gap: 2rem;
+a,
+a:visited {
+	color: #0b57d0;
 }
 
-.hero,
-.panel,
-.post-card,
-.gallery-card,
-.photo-card,
-.entry-shell,
-.content-hero,
-.listing-hero {
-	background: var(--paper);
+.site-header nav a,
+.footer-links a {
+	text-decoration: none;
+}
+
+.profile-section {
+	display: grid;
+	grid-template-columns: 140px 1fr;
+	gap: 24px;
+	padding: 24px 0 8px;
+}
+
+.profile-photo {
+	width: 120px;
+	height: 120px;
 	border: 1px solid var(--line);
-	box-shadow: var(--shadow);
-}
-
-.hero {
-	display: grid;
-	grid-template-columns: 1.4fr 0.9fr;
-	gap: 1.5rem;
-	padding: 2rem;
-	border-radius: 2rem;
-	overflow: hidden;
-	position: relative;
-}
-
-.hero::after {
-	content: "";
-	position: absolute;
-	inset: auto -5% -30% 35%;
-	height: 280px;
-	background: radial-gradient(circle, rgba(156, 84, 61, 0.18), transparent 68%);
-	pointer-events: none;
-}
-
-.hero-copy h1,
-.listing-hero h1,
-.entry-shell h1,
-.content-hero h1 {
-	font-size: clamp(2.8rem, 5vw, 5.6rem);
-	line-height: 0.94;
-	letter-spacing: -0.05em;
-	margin: 0 0 1rem;
-	max-width: 11ch;
-}
-
-.hero-lede,
-.listing-copy,
-.entry-meta,
-.site-footer p,
-.gallery-copy p,
-.photo-copy p,
-.post-card p,
-.panel p,
-.prose p,
-.prose li {
-	font-family: "Avenir Next", "Segoe UI", sans-serif;
-	font-size: 1.04rem;
-	line-height: 1.75;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
 	color: var(--muted);
 }
 
-.hero-card {
-	align-self: end;
-	padding: 1.4rem;
-	border-radius: 1.5rem;
-	background: linear-gradient(180deg, rgba(35, 29, 25, 0.92), rgba(55, 42, 33, 0.95));
-	color: #f7efe5;
+.profile-copy h1,
+.page-section h1,
+.post-page h1 {
+	margin: 0 0 8px;
+	font-size: 32px;
+	line-height: 1.2;
 }
 
-.card-label,
-.eyebrow,
-.meta,
-.location {
-	font-family: "Avenir Next", "Segoe UI", sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 0.16em;
-	font-size: 0.74rem;
+.profile-meta,
+.bio,
+.entry-item p,
+.news-list,
+.post-archive p,
+.post-content p,
+.site-footer {
+	color: var(--muted);
 }
 
-.eyebrow,
-.meta,
-.location,
-.card-label {
-	color: var(--accent);
+.contact-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 16px;
 }
 
-.card-title {
-	font-size: 1.7rem;
-	line-height: 1.05;
-	margin: 0.45rem 0 0.8rem;
+.section-block,
+.page-section,
+.post-page {
+	padding-top: 8px;
 }
 
-.card-body {
-	font-family: "Avenir Next", "Segoe UI", sans-serif;
-	font-size: 0.98rem;
-	line-height: 1.7;
+.section-block h2,
+.page-section h1 {
+	margin: 24px 0 16px;
+	font-size: 28px;
+}
+
+.entry-list,
+.news-list,
+.post-list-simple,
+.post-archive {
+	padding-left: 20px;
+}
+
+.entry-item {
+	margin-bottom: 20px;
+}
+
+.entry-heading,
+.section-header,
+.site-footer {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.entry-heading h3,
+.entry-heading p,
+.entry-subtitle,
+.entry-meta-line,
+.post-archive li,
+.post-list-simple li,
+.news-list li {
 	margin: 0;
-	color: rgba(247, 239, 229, 0.82);
 }
 
-.button-primary,
-.button-secondary {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 48px;
-	padding: 0.8rem 1.15rem;
-	border-radius: 999px;
-	text-decoration: none;
-	font-family: "Avenir Next", "Segoe UI", sans-serif;
+.entry-subtitle {
+	font-weight: 700;
+	color: var(--text);
 }
 
-.button-primary {
-	background: #241d1a;
-	color: #fff7f0;
+.entry-meta-line,
+.news-date,
+.post-date,
+.post-page-date {
+	color: #666;
+	font-size: 14px;
 }
 
-.button-secondary {
-	border: 1px solid var(--line-strong);
-	background: rgba(255, 252, 248, 0.88);
+.news-list li,
+.post-list-simple li,
+.post-archive li {
+	margin-bottom: 12px;
 }
 
-.panel-grid,
-.post-list {
+.post-list-simple li,
+.post-archive li {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1.25rem;
+	grid-template-columns: 120px 1fr;
+	gap: 12px;
 }
 
-.panel,
-.post-card,
-.listing-hero,
-.content-hero,
-.entry-shell {
-	padding: 1.6rem;
-	border-radius: 1.7rem;
+.post-content {
+	max-width: 760px;
 }
 
-.panel-large {
-	min-height: 270px;
-}
-
-.accent-panel {
-	background:
-		linear-gradient(135deg, rgba(119, 146, 162, 0.18), transparent 60%),
-		rgba(255, 251, 245, 0.82);
-}
-
-.section-header {
-	display: flex;
-	align-items: end;
-	justify-content: space-between;
-	gap: 1rem;
-	padding-top: 0.5rem;
-}
-
-.section-header h2,
-.panel h2,
-.post-card h2,
-.post-card h3,
-.gallery-copy h2,
-.photo-copy h3 {
-	margin: 0.2rem 0 0.65rem;
-	font-size: clamp(1.5rem, 2vw, 2.1rem);
-	line-height: 1.05;
-}
-
-.section-link,
-.text-link {
-	font-family: "Avenir Next", "Segoe UI", sans-serif;
-	color: var(--accent);
-}
-
-.post-card,
-.gallery-card,
-.photo-card {
-	text-decoration: none;
-	transition:
-		transform 180ms ease,
-		border-color 180ms ease;
-}
-
-.post-card:hover,
-.gallery-card:hover,
-.photo-card:hover {
-	transform: translateY(-4px);
-	border-color: var(--line-strong);
-}
-
-.tag-list {
-	list-style: none;
-	padding: 0;
-	margin: 1rem 0 0;
-}
-
-.tag-list li {
-	padding: 0.32rem 0.65rem;
-	border-radius: 999px;
-	background: rgba(156, 84, 61, 0.08);
-	font-family: "Avenir Next", "Segoe UI", sans-serif;
-	font-size: 0.88rem;
-	color: var(--accent);
-}
-
-.photo-grid {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1rem;
-}
-
-.photo-card {
-	border-radius: 1.5rem;
-	overflow: hidden;
-}
-
-.photo-card img {
-	aspect-ratio: 1 / 1.08;
-	object-fit: cover;
-}
-
-.photo-copy {
-	padding: 1rem;
-}
-
-.gallery-grid {
-	display: grid;
-	gap: 1.2rem;
-}
-
-.gallery-card {
-	display: grid;
-	grid-template-columns: 1fr 0.9fr;
-	gap: 1rem;
-	padding: 1rem;
-	border-radius: 1.7rem;
-}
-
-.gallery-card img {
-	height: 100%;
-	border-radius: 1.15rem;
-	object-fit: cover;
-}
-
-.gallery-copy {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 0.4rem 0.2rem;
-}
-
-.prose-page {
-	width: var(--prose-width);
-	margin: 0 auto;
-}
-
-.prose {
-	font-family: "Avenir Next", "Segoe UI", sans-serif;
-}
-
-.prose h2,
-.prose h3 {
-	font-size: 1.6rem;
-	line-height: 1.15;
-	margin-top: 2rem;
-}
-
-.prose a {
-	color: var(--accent);
-}
-
-.prose ul {
-	padding-left: 1.1rem;
-}
-
-.entry-prose {
-	margin-top: 2rem;
+.post-content h2,
+.post-content h3 {
+	margin-top: 24px;
+	font-size: 22px;
 }
 
 .site-footer {
-	margin-top: 1rem;
-	padding: 1.2rem 0.2rem 0;
+	margin-top: 36px;
+	padding-top: 12px;
 	border-top: 1px solid var(--line);
+	font-size: 14px;
 }
 
-@media (max-width: 900px) {
-	.hero,
-	.panel-grid,
-	.post-list,
-	.photo-grid,
-	.gallery-card {
-		grid-template-columns: 1fr;
-	}
+.footer-links {
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+}
 
-	.section-header,
+@media (max-width: 700px) {
 	.site-header,
-	.site-footer {
+	.site-footer,
+	.entry-heading,
+	.profile-section,
+	.post-list-simple li,
+	.post-archive li {
+		grid-template-columns: 1fr;
 		flex-direction: column;
 		align-items: flex-start;
-	}
-
-	.site-header {
-		border-radius: 1.2rem;
-		padding: 1rem;
-	}
-}
-
-@media (max-width: 640px) {
-	.page-shell {
-		width: min(100vw - 1rem, 100%);
-		padding-top: 0.5rem;
-	}
-
-	.hero,
-	.panel,
-	.post-card,
-	.gallery-card,
-	.entry-shell,
-	.content-hero,
-	.listing-hero {
-		border-radius: 1.25rem;
-	}
-
-	.hero-copy h1,
-	.listing-hero h1,
-	.entry-shell h1,
-	.content-hero h1 {
-		font-size: 2.8rem;
-		max-width: none;
 	}
 }

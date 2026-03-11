@@ -8,7 +8,7 @@ interface Props {
 
 const {
 	title,
-	description = 'Personal site for Shichen: intro, experience, journal entries, and selected photos.',
+	description = 'Personal site for Shi Chen: bio, experience, news, and posts.',
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
@@ -33,12 +33,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 	<body>
 		<div class="page-shell">
 			<header class="site-header">
-				<a class="brand" href="/">Shichen</a>
+				<a class="brand" href="/">Shi Chen</a>
 				<nav aria-label="Primary">
-					<a href="/about">About</a>
-					<a href="/experience">Experience</a>
-					<a href="/journal">Journal</a>
-					<a href="/photos">Photos</a>
+					<a href="/#about">About</a>
+					<a href="/#experience">Experience</a>
+					<a href="/#news">News</a>
+					<a href="/posts">Posts</a>
 				</nav>
 			</header>
 
@@ -47,11 +47,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 			</main>
 
 			<footer class="site-footer">
-				<p>Built with Astro. Writing, images, and notes live here.</p>
+				<p>© 2026 Shi Chen</p>
 				<div class="footer-links">
-					<a href="/journal">Journal</a>
+					<a href="/posts">Posts</a>
 					<a href="https://github.com/Caesium135">GitHub</a>
-					<a href="mailto:shichen.life@gmail.com">Email</a>
+					<a href="mailto:shic4@illinois.edu">Email</a>
 				</div>
 			</footer>
 		</div>
