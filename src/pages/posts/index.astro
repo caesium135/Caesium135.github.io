@@ -1,27 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-
-const entries = (await getCollection('journal', ({ data }) => !data.draft)).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
 ---
 
 <Layout title="Posts | Shi Chen" description="Posts and notes by Shi Chen.">
 	<section class="page-section">
 		<h1>Posts</h1>
-		<ul class="post-archive">
-			{
-				entries.map((entry) => (
-					<li>
-						<span>{entry.data.date.toLocaleDateString('en-US', { dateStyle: 'medium' })}</span>
-						<div>
-							<a href={`/posts/${entry.id}/`}>{entry.data.title}</a>
-							<p>{entry.data.summary}</p>
-						</div>
-					</li>
-				))
-			}
-		</ul>
+		<p class="empty-state">No posts yet.</p>
 	</section>
 </Layout>
