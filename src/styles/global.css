@@ -59,6 +59,7 @@ img {
 	justify-content: center;
 	padding: 4px 10px;
 	background: #111;
+	border-radius: 8px;
 	color: #f2d34f;
 	font-size: 20px;
 	font-weight: 700;
