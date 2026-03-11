@@ -54,8 +54,15 @@ img {
 }
 
 .brand {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 10px;
+	background: #111;
+	color: #f2d34f;
 	font-size: 20px;
 	font-weight: 700;
+	letter-spacing: 0.01em;
 	text-decoration: none;
 }
 
