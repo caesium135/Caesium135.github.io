@@ -205,6 +205,16 @@ a:visited {
 	margin-top: 1px;
 }
 
+.compact-bullets {
+	margin: 4px 0 0;
+	padding-left: 18px;
+	color: var(--muted);
+}
+
+.compact-bullets li {
+	margin-bottom: 4px;
+}
+
 .news-list li,
 .post-list-simple li,
 .post-archive li {
