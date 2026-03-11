@@ -179,6 +179,22 @@ a:visited {
 	margin-bottom: 12px;
 }
 
+.news-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.news-list li {
+	display: grid;
+	grid-template-columns: 96px 1fr;
+	gap: 16px;
+	align-items: start;
+}
+
+.news-list li p {
+	margin: 0;
+}
+
 .post-list-simple li,
 .post-archive li {
 	display: grid;
@@ -225,10 +241,15 @@ a:visited {
 	.site-footer,
 	.entry-heading,
 	.profile-section,
+	.news-list li,
 	.post-list-simple li,
 	.post-archive li {
 		grid-template-columns: 1fr;
 		flex-direction: column;
 		align-items: flex-start;
+	}
+
+	.news-list li {
+		gap: 4px;
 	}
 }
