@@ -96,6 +96,13 @@ img {
 	text-decoration: none;
 }
 
+.brand,
+.brand:visited,
+.brand:hover,
+.brand:active {
+	color: var(--brand-text);
+}
+
 a,
 a:visited {
 	color: var(--link);
