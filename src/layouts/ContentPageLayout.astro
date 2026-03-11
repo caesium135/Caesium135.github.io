@@ -1,0 +1,21 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	eyebrow?: string;
+}
+
+const { title, description, eyebrow } = Astro.props;
+---
+
+<Layout title={`${title} | Shichen`} description={description}>
+	<section class="content-hero prose-page">
+		{eyebrow && <p class="eyebrow">{eyebrow}</p>}
+		<h1>{title}</h1>
+		<article class="prose">
+			<slot />
+		</article>
+	</section>
+</Layout>
