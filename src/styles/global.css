@@ -149,15 +149,16 @@ a:visited {
 
 .profile-section {
 	display: grid;
-	grid-template-columns: 220px 1fr;
+	grid-template-columns: 260px 1fr;
 	gap: 20px;
 	padding: 24px 0 0;
 }
 
 .profile-photo {
-	width: 210px;
-	height: 255px;
+	width: 250px;
+	height: 300px;
 	border: 1px solid var(--line);
+	border-radius: 16px;
 	object-fit: cover;
 	object-position: center 28%;
 }
